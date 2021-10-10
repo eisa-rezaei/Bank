@@ -1,0 +1,2 @@
+(this.webpackJsonpcra=this.webpackJsonpcra||[]).push([[7],{213:function(n,e,t){"use strict";t.r(e);var a,c=t(1),i=t.n(c),r=t(8),l=t(9).b.div(a||(a=Object(r.a)(["\n  width: 100%;\n  height: auto;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"])));e.default=function(){return i.a.createElement(l,null,i.a.createElement("h1",null," \u067e\u0631\u0648\u0641\u0627\u06cc\u0644 "))}}}]);
+//# sourceMappingURL=7.da104896.chunk.js.map
