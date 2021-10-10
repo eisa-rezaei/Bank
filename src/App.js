@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Suspense, lazy } from "react";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Loading from "./components/Loading";
+import { GlobalStyle } from "./globalStyle";
 
-function App() {
+const Home = lazy(() => import("./components/Home"));
+const Login = lazy(() => import("./components/Login"));
+const Statistic = lazy(() => import("./components/Statistic"));
+const Card = lazy(() => import("./components/Card"));
+const Profile = lazy(() => import("./components/Profile"));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<Loading />}>
+      <Router>
+        <Layout>
+          <Switch>
+            <Route path="/" exact children={<Home />} />
+            <Route path="/login" exact children={<Login />} />
+            <Route path="/statistic" exact children={<Statistic />} />
+            <Route path="/card" exact children={<Card />} />
+            <Route path="/profile" exact children={<Profile />} />
+          </Switch>
+        </Layout>
+      </Router>
+      <GlobalStyle />
+    </Suspense>
   );
-}
+};
 
 export default App;

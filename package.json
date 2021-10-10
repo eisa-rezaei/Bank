@@ -2,14 +2,23 @@
   "name": "cra",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://eisa-rezaei.github.io/bank-bank",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "formik": "^2.2.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+    "react-icons": "^4.3.1",
+    "react-redux": "^7.2.5",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "^3.4.4",
+    "redux": "^4.1.1",
+    "redux-persist": "^6.0.0",
+    "styled-components": "^5.3.1",
+    "web-vitals": "^1.0.1",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",
