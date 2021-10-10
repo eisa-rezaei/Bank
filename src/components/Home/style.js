@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StHomeContaienr = styled.div`
+export const StHomeContainer = styled.div`
   width: 100%;
   height: auto;
   margin: 40px 80px;
@@ -23,7 +23,7 @@ export const StHomeBank = styled.article`
   width: 100%;
   max-height: 300px;
   border-radius: 20px;
-  margin: 60px auto;
+  margin: 50px auto;
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
@@ -65,9 +65,9 @@ export const StHomeMoneyTransformTitle = styled.header`
   align-self: baseline;
   flex-direction: row-reverse;
   justify-content: space-between;
-  & a {
+  & span {
     align-self: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #dc7031;
     cursor: pointer;
   }

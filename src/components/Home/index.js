@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { useState } from "react";
 
 import { HiOutlinePlusSm } from "react-icons/hi";
@@ -6,45 +6,71 @@ import { HiOutlinePlusSm } from "react-icons/hi";
 import HomeListItem from "./components/List";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import selectors from "../../redux/moneyTransform/selectors";
+import selectors from "../../redux/accounts/selectors";
+
+import Bank from "./components/Bank";
+import CartsPopUp from "./components/CartsPopUp";
+import AddCartPopUp from "./components/AddCartPopUp";
+import { StHomeBankName } from "./components/Bank/style";
 
 import {
   StHomeBank,
   StHomeBankAddCard,
-  StHomeContaienr,
+  StHomeContainer,
   StHomeDashboard,
   StHomeMoneyTransform,
   StHomeMoneyTransformTitle,
 } from "./style";
-import Bank from "./components/Bank";
-import CartsPopUp from "./components/CartsPopUp";
-import AddCartPopUp from "./components/AddCartPopUp";
+import { StHomeMoneyTransformItem } from "./components/List/style";
+import AddTransaction from "./components/AddTransation";
 
 const Home = () => {
-  const [bank, setBank] = useState("melli");
+  const accounts = useSelector(selectors.getAccounts);
+  const [account, setAccount] = useState("");
+
   const [isCardsPopedUp, setIsCardsPopedUp] = useState(false);
   const [isAddCardsPopedUp, setIsAddCardsPopedUp] = useState(false);
+  const [isAddTransactionPu, setIsAddTransactionPu] = useState(false);
 
-  const moneyTransform = useSelector(selectors?.getMoneyTransform);
-  const currentBank = moneyTransform?.filter(
-    (item) => item?.bank?.toLowerCase() === bank?.toLowerCase()
-  );
+  const currentAccount = accounts.find((item) => item.id === account) || {};
+
+  useLayoutEffect(() => {
+    if (!account && accounts.length) {
+      setAccount(accounts[0]?.id);
+    }
+  }, [accounts, account]);
 
   return (
-    <StHomeContaienr>
+    <StHomeContainer>
       {isCardsPopedUp && (
-        <CartsPopUp setIsCardsPopedUp={setIsCardsPopedUp} setBank={setBank} />
+        <CartsPopUp
+          setIsCardsPopedUp={setIsCardsPopedUp}
+          setAccount={setAccount}
+        />
       )}
       {isAddCardsPopedUp && (
         <AddCartPopUp setIsAddCardsPopedUp={setIsAddCardsPopedUp} />
       )}
+      {isAddTransactionPu && (
+        <AddTransaction setIsAddTransactionPu={setIsAddTransactionPu} />
+      )}
       <StHomeDashboard>
-        حساب کاربری
+        <StHomeMoneyTransformTitle>
+          حساب کاربری
+          <span onClick={() => setIsAddTransactionPu(!isAddTransactionPu)}>
+            افزودن تراکنش
+          </span>
+        </StHomeMoneyTransformTitle>
         <StHomeBank>
-          <Bank
-            currentBankName={currentBank[0].bank}
-            setIsCardsPopedUp={setIsCardsPopedUp}
-          />
+          {Object.keys(currentAccount).length ? (
+            <Bank
+              currentAccount={currentAccount}
+              setIsCardsPopedUp={setIsCardsPopedUp}
+            />
+          ) : (
+            <StHomeBankName> هیچ حسابی تغریف نشده</StHomeBankName>
+          )}
+
           <StHomeBankAddCard
             onClick={() => setIsAddCardsPopedUp(!isAddCardsPopedUp)}
           >
@@ -57,16 +83,20 @@ const Home = () => {
       <StHomeMoneyTransform>
         <StHomeMoneyTransformTitle>
           نقل و انتقالات
-          <Link to="/statistic">مشاهده همه</Link>
+          <Link to="/statistic">
+            <span>مشاهده همه</span>
+          </Link>
         </StHomeMoneyTransformTitle>
-        {currentBank
-          ?.reverse()
-          .slice(0, 3)
-          .map((item) => (
-            <HomeListItem {...item} />
-          ))}
+        {Object.keys(currentAccount).length &&
+        currentAccount?.transactions?.length ? (
+          <HomeListItem currentAccount={currentAccount} />
+        ) : (
+          <StHomeMoneyTransformItem>
+            تراکنشی تعریف نشده
+          </StHomeMoneyTransformItem>
+        )}
       </StHomeMoneyTransform>
-    </StHomeContaienr>
+    </StHomeContainer>
   );
 };
 

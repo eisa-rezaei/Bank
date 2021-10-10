@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StAddCartPopUp = styled.div`
+export const StAddTransaction = styled.div`
   width: 100%;
   height: 100vh;
   padding: 10px;
@@ -12,7 +12,7 @@ export const StAddCartPopUp = styled.div`
   top: 0;
   left: 0;
 `;
-export const StAddCartPopUpContent = styled.ul`
+export const StAddTransactionContent = styled.ul`
   width: 65%;
   height: 70%;
   padding: 30px;
@@ -44,7 +44,7 @@ export const StAddCartPopUpContent = styled.ul`
     }
   }
 `;
-export const StAddCartPopUpContentItem = styled.div`
+export const StAddTransactionContentItem = styled.div`
   width: 100%;
   height: 70px;
   padding: 20px;
@@ -63,7 +63,7 @@ export const StAddCartPopUpContentItem = styled.div`
   }
 `;
 
-export const StAddCartPopUpContentForm = styled.form`
+export const StAddTransactionContentForm = styled.form`
   width: 100%;
   margin: 10px auto;
   display: flex;
@@ -78,7 +78,7 @@ export const StAddCartPopUpContentForm = styled.form`
   }
 `;
 
-export const StAddCartPopUpContentFormControl = styled.form`
+export const StAddTransactionContentFormControl = styled.form`
   width: 100%;
   height: auto;
   margin: 20px auto;
@@ -94,16 +94,16 @@ export const StAddCartFormControlInput = styled.input`
   color: #222;
   border-bottom: 2px solid #e0e0e0;
 `;
-export const StAddCartPopUpContentFormSubmitContainer = styled.div`
+export const StAddTransactionContentFormSubmitContainer = styled.div`
   width: 100%;
   height: 50px;
-  margin-top: 30px;
-  padding: 0 10px;
+  margin-bottom: 10px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 `;
 
-export const StAddCartPopUpContentFormSubmitBtn = styled.button`
+export const StAddTransactionContentFormSubmitBtn = styled.button`
   width: 200px;
   height: 50px;
   padding: 10px;
@@ -111,12 +111,11 @@ export const StAddCartPopUpContentFormSubmitBtn = styled.button`
   bottom: 40px;
   left: 40px;
   color: #fff;
-  align-self: flex-start;
   background: #88d453;
   cursor: pointer;
   border-radius: 10px;
 `;
-export const StAddCartPopUpContentFormEnd = styled.button`
+export const StAddTransactionContentFormEnd = styled.button`
   width: 200px;
   height: 50px;
   padding: 10px;
@@ -124,13 +123,12 @@ export const StAddCartPopUpContentFormEnd = styled.button`
   bottom: 40px;
   right: 40px;
   color: #e74c3c;
-  align-self: flex-end;
   border: 2px solid #e74c3c;
   cursor: pointer;
   border-radius: 10px;
 `;
 
-export const StAddCardSelectTitle = styled.div`
+export const StAddTransactionSelectTitle = styled.div`
   width: 100%;
   height: 300px;
   font-size: 1.5rem;

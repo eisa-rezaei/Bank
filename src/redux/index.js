@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { moneyReducer } from "./moneyTransform/moneyReducer";
+import { reducer as accReducer } from "./accounts/reducer";
 
 const reducers = combineReducers({
-  moneyTransform: moneyReducer,
+  accounts: accReducer,
 });
 
 export default reducers;

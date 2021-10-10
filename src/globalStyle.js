@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
+import IranYekan from "./assets/styles/fonts.css";
 
 export const GlobalStyle = createGlobalStyle`
+${IranYekan}
 *,
 *::after,
 *:before{
@@ -10,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 	font: inherit;
 	vertical-align: baseline;
     box-sizing: border-box;
+    font-family: IranYekan;
 }
 body {
 	line-height: 1;
@@ -32,5 +35,6 @@ a {
 }
 button{
     border: none;
+    background-color: inherit;
 }
 `;

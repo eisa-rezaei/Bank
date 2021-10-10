@@ -1,10 +1,16 @@
+import React from "react";
+import { HiHome } from "react-icons/hi";
+import { IoWallet } from "react-icons/io5";
+import { MdInsertChart } from "react-icons/md";
+import { IoMdPerson } from "react-icons/io";
+
 import { ReactComponent as Refah } from "../SVG Assets/Bank/Mono/Refah.svg";
 import { ReactComponent as Saderat } from "../SVG Assets/Bank/Mono/Saderat.svg";
 import { ReactComponent as Saman } from "../SVG Assets/Bank/Mono//Saman.svg";
 import { ReactComponent as Shahr } from "../SVG Assets/Bank/Mono/Shahr.svg";
 import { ReactComponent as Sina } from "../SVG Assets/Bank/Mono/Sina.svg";
-import { ReactComponent as Tejarat } from "../SVG Assets/Bank/Mono/Tejarat.svg";
 import { ReactComponent as Mellat } from "../SVG Assets/Bank/Mono/Mellat.svg";
+import { ReactComponent as Tejarat } from "../SVG Assets/Bank/Mono/Tejarat.svg";
 import { ReactComponent as Melli } from "../SVG Assets/Bank/Mono/Melli.svg";
 
 import { ReactComponent as RefahC } from "../SVG Assets/Bank/Color/Refah.svg";
@@ -56,4 +62,11 @@ export const banksNameArr = [
   "sina",
   "tejarat",
   "shahr",
+];
+
+export const LINKS_DATA = [
+  { icon: <HiHome />, title: "خانه", path: "/" },
+  { icon: <IoWallet />, title: "کیف پول", path: "/card" },
+  { icon: <MdInsertChart />, title: "آمار", path: "/statistic" },
+  { icon: <IoMdPerson />, title: "پروفایل", path: "/profile" },
 ];
