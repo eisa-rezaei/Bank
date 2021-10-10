@@ -4,7 +4,13 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import { banksColor, banksNameArr } from "../../../helperDate";
 import { useDispatch } from "react-redux";
+import { addAccount } from "../../../../redux/accounts/actions";
+import { v4 as uuidv4 } from "uuid";
+
+import { IoClose } from "react-icons/io5";
+
 import {
+  StAddCardSelectTitle,
   StAddCartFormControlInput,
   StAddCartPopUp,
   StAddCartPopUpContent,
@@ -15,42 +21,42 @@ import {
   StAddCartPopUpContentFormSubmitContainer,
   StAddCartPopUpContentItem,
 } from "./style";
-import { addingBank } from "../../../../redux/moneyTransform/productActions";
 
 const AddCartPopUp = ({ setIsAddCardsPopedUp }) => {
   const [bankNamePu, setBankNamePustate] = useState("");
+
   const dispatch = useDispatch();
+
   const bankNameValue = (item) => () => {
     setBankNamePustate(item);
   };
 
   const initialValues = {
-    cost: "",
-    time: "",
+    amount: "",
+    name: "",
   };
 
   const onSubmit = (values) => {
     dispatch(
-      addingBank({
+      addAccount({
         ...values,
         bank: bankNamePu,
-        isInput: true,
-        id: Math.floor(Math.random() * 1000000),
-        name: "افزودن درامد ",
+        id: uuidv4(),
+        transactions: [],
+        time: new Date().toISOString(),
       })
     );
     setIsAddCardsPopedUp((prev) => !prev);
   };
 
   const validationSchema = Yup.object({
-    cost: Yup.string("تایپ وارد شده نادرست است")
+    amount: Yup.string("تایپ وارد شده نادرست است")
       .min(7, "اعداد وارد شده باید بیشتر از ۷ عدد باشد")
       .max(10, "بیشترین مقدار")
       .required("این فیلد الزامی میباشد"),
-    time: Yup.string()
+    name: Yup.string()
       .required("این فیلد الزامی میباشد")
-      .min(8, "تایپ وارد شده اشتباه میباشد لطفا طبق نمونه انجام دهید")
-      .matches(/[0-9/]/, "لطفا فرمت درستی وارد کنید"),
+      .min(4, "مقدار وارد شده کمتر از ۴ کاراکتر میباشد"),
   });
 
   const formik = useFormik({ initialValues, onSubmit, validationSchema });
@@ -69,52 +75,62 @@ const AddCartPopUp = ({ setIsAddCardsPopedUp }) => {
   return (
     <StAddCartPopUp>
       <StAddCartPopUpContent>
-        <h1>اضافه کردن کارت</h1>
+        <span>
+          <h1> افزودن حساب</h1>
+          <IoClose onClick={() => setIsAddCardsPopedUp((prev) => !prev)} />
+        </span>
         <StAddCartPopUpContentItem numberBanks={numberBanks}>
           {banksNameArr.map((item) => {
             const Logo = banksColor[item.toLocaleLowerCase()];
             return <Logo onClick={bankNameValue(item)} />;
           })}
         </StAddCartPopUpContentItem>
-        <StAddCartPopUpContentForm onSubmit={formik.handleSubmit}>
-          <StAddCartPopUpContentFormControl>
-            <label htmlFor="cost">: دارایی فعلی</label>
-            <StAddCartFormControlInput
-              type="number"
-              id="cost"
-              name="cost"
-              placeholder="دارایی (تومان)"
-              required
-              {...formik.getFieldProps("cost")}
-            />
-            {formik.errors.cost && formik.touched.cost ? (
-              <p>{formik.errors.cost}</p>
-            ) : null}
-          </StAddCartPopUpContentFormControl>
-          <StAddCartPopUpContentFormControl>
-            <label htmlFor="time">: تاریخ ثبت</label>
-            <StAddCartFormControlInput
-              type="text"
-              id="time"
-              name="time"
-              placeholder=" نمونه : 1400/03/02   لطفا از اعداد انگلیسی استفاده نمایید"
-              {...formik.getFieldProps("time")}
-            />
-            {formik.touched.time && formik.errors.time ? (
-              <p>{formik.errors.time}</p>
-            ) : null}
-          </StAddCartPopUpContentFormControl>
-          <StAddCartPopUpContentFormSubmitContainer>
-            <StAddCartPopUpContentFormSubmitBtn align type="submit">
-              اضافه کردن
-            </StAddCartPopUpContentFormSubmitBtn>
-            <StAddCartPopUpContentFormEnd
-              onClick={() => setIsAddCardsPopedUp((prev) => !prev)}
-            >
-              انصراف
-            </StAddCartPopUpContentFormEnd>
-          </StAddCartPopUpContentFormSubmitContainer>
-        </StAddCartPopUpContentForm>
+        {bankNamePu ? (
+          <StAddCartPopUpContentForm onSubmit={formik.handleSubmit}>
+            <StAddCartPopUpContentFormControl>
+              <label htmlFor="name"> : عنوان حساب</label>
+              <StAddCartFormControlInput
+                type="text"
+                id="name"
+                name="name"
+                placeholder="عنوان حساب"
+                required
+                {...formik.getFieldProps("name")}
+              />
+              {formik.errors.name && formik.touched.name ? (
+                <p>{formik.errors.name}</p>
+              ) : null}
+            </StAddCartPopUpContentFormControl>
+            <StAddCartPopUpContentFormControl>
+              <label htmlFor="cost">: دارایی فعلی</label>
+              <StAddCartFormControlInput
+                type="number"
+                id="amount"
+                name="amount"
+                placeholder="دارایی (تومان)"
+                required
+                {...formik.getFieldProps("amount")}
+              />
+              {formik.errors.amount && formik.touched.amount ? (
+                <p>{formik.errors.amount}</p>
+              ) : null}
+            </StAddCartPopUpContentFormControl>
+            <StAddCartPopUpContentFormSubmitContainer>
+              <StAddCartPopUpContentFormSubmitBtn align type="submit">
+                اضافه کردن
+              </StAddCartPopUpContentFormSubmitBtn>
+              <StAddCartPopUpContentFormEnd
+                onClick={() => setIsAddCardsPopedUp((prev) => !prev)}
+              >
+                انصراف
+              </StAddCartPopUpContentFormEnd>
+            </StAddCartPopUpContentFormSubmitContainer>
+          </StAddCartPopUpContentForm>
+        ) : (
+          <StAddCardSelectTitle>
+            لطفا بانک را انتخاب نمایید
+          </StAddCardSelectTitle>
+        )}
       </StAddCartPopUpContent>
     </StAddCartPopUp>
   );

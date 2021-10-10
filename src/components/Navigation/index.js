@@ -1,11 +1,8 @@
 import React from "react";
-import { HiHome } from "react-icons/hi";
-import { IoWallet } from "react-icons/io5";
-import { MdInsertChart } from "react-icons/md";
-import { IoMdPerson } from "react-icons/io";
 import { RiToggleLine } from "react-icons/ri";
 
 import { Link, useLocation } from "react-router-dom";
+import { LINKS_DATA } from "../helperDate";
 import {
   StNavContainrer,
   StNavFooter,
@@ -13,21 +10,14 @@ import {
   StNavLinksList,
 } from "./style";
 
-const LINKS_DATA = [
-  { icon: <HiHome />, title: "خانه", path: "/" },
-  { icon: <IoWallet />, title: "کیف پول", path: "/card" },
-  { icon: <MdInsertChart />, title: "آمار", path: "/statistic" },
-  { icon: <IoMdPerson />, title: "پروفایل", path: "/profile" },
-];
-
 const Navigation = () => {
   const location = useLocation();
   return (
     <StNavContainrer>
       <h2>سیستم مدیریت بانکی</h2>
       <StNavLinksList>
-        {LINKS_DATA.map(({ icon, title, path }) => (
-          <StNavLink path={path === location.pathname}>
+        {LINKS_DATA.map(({ icon, title, path }, index) => (
+          <StNavLink path={path === location.pathname} key={index}>
             {icon}
             <Link to={path}>{title}</Link>
           </StNavLink>
