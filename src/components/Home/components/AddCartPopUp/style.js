@@ -138,3 +138,18 @@ export const StAddCardSelectTitle = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const StAddCartContentSingleItem = styled.div`
+  width: 100px;
+  height: auto;
+  padding: 10px;
+  line-height: 46px;
+  border-radius: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #efefef;
+  background-color: ${(props) => (props.selected ? `greenyellow;` : `#fff;`)};
+`;

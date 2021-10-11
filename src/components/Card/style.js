@@ -33,3 +33,16 @@ export const StCardListItem = styled.li`
     min-width: 60px;
   }
 `;
+export const StCardListNoItem = styled.div`
+  width: 100%;
+  height: 500px;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  & svg {
+    margin-top: 20px;
+    font-size: 3rem;
+  }
+`;
