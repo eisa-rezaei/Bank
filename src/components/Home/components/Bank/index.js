@@ -9,15 +9,16 @@ import {
 
 const Bank = ({ currentAccount, setIsCardsPopedUp }) => {
   const Logo = banks[currentAccount?.bank?.toLowerCase()];
+  const amount = currentAccount?.amount;
   return (
     <StHomeBankName onClick={() => setIsCardsPopedUp((prev) => !prev)}>
       <StHomeBankNameIconBox>
         <p>{currentAccount?.name}</p>
         <Logo />
       </StHomeBankNameIconBox>
-      <StHomeBankNameAdd>
+      <StHomeBankNameAdd amount={amount < 0}>
         موجودی
-        <p>{currentAccount?.amount?.toLocaleString("fa")}</p>
+        <p>{amount.toLocaleString("fa")}</p>
       </StHomeBankNameAdd>
     </StHomeBankName>
   );

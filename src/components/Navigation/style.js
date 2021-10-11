@@ -20,13 +20,15 @@ export const StNavContainrer = styled.nav`
 export const StNavLinksList = styled.ul`
   width: 100%;
   height: auto;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 export const StNavLink = styled.li`
   width: 100%;
-  height: auto;
+  height: 80px;
+  font-size: 0.9rem;
   padding-right: 20px;
   color: ${(props) => (props.path ? `#473252` : `#c1c1c1`)};
   display: flex;
@@ -34,7 +36,8 @@ export const StNavLink = styled.li`
   align-items: center;
   justify-content: flex-start;
   & svg {
-    margin-left: 15px;
+    font-size: 1.4rem;
+    margin-left: 25px;
   }
 `;
 

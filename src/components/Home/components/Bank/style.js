@@ -28,7 +28,7 @@ export const StHomeBankNameAdd = styled.div`
   align-items: flex-end;
   justify-content: space-between;
   & p {
-    color: #fff;
+    color: ${(props) => (props.amount ? `#ea4c46` : `#fff`)};
     align-self: flex-start;
     font-size: 2rem;
   }

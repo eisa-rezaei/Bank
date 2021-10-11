@@ -1,14 +1,14 @@
-import React from "react";
-import * as Yup from "yup";
-import { useState } from "react";
-import { useFormik } from "formik";
-import { banksColor, banksNameArr } from "../../../helperDate";
-import { useDispatch } from "react-redux";
-import { addAccount } from "../../../../redux/accounts/actions";
-import { v4 as uuidv4 } from "uuid";
+import React, { useState } from "react";
 
 import { IoClose } from "react-icons/io5";
 
+import { v4 as uuidv4 } from "uuid";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
+import { useDispatch } from "react-redux";
+import { banksColor, banksNameArr } from "../../../helperDate";
+import { addAccount } from "../../../../redux/accounts/actions";
 import {
   StAddCardSelectTitle,
   StAddCartFormControlInput,
@@ -23,12 +23,12 @@ import {
 } from "./style";
 
 const AddCartPopUp = ({ setIsAddCardsPopedUp }) => {
-  const [bankNamePu, setBankNamePustate] = useState("");
+  const [bankName, setBankName] = useState("");
 
   const dispatch = useDispatch();
 
   const bankNameValue = (item) => () => {
-    setBankNamePustate(item);
+    setBankName(item);
   };
 
   const initialValues = {
@@ -40,7 +40,7 @@ const AddCartPopUp = ({ setIsAddCardsPopedUp }) => {
     dispatch(
       addAccount({
         ...values,
-        bank: bankNamePu,
+        bank: bankName,
         id: uuidv4(),
         transactions: [],
         time: new Date().toISOString(),
@@ -50,7 +50,7 @@ const AddCartPopUp = ({ setIsAddCardsPopedUp }) => {
   };
 
   const validationSchema = Yup.object({
-    amount: Yup.string("تایپ وارد شده نادرست است")
+    amount: Yup.string()
       .min(7, "اعداد وارد شده باید بیشتر از ۷ عدد باشد")
       .max(10, "بیشترین مقدار")
       .required("این فیلد الزامی میباشد"),
@@ -71,7 +71,7 @@ const AddCartPopUp = ({ setIsAddCardsPopedUp }) => {
     tejarat: 7,
     shahr: 8,
   };
-  const numberBanks = BanksSelect[bankNamePu.toLocaleLowerCase()];
+  const numberBanks = BanksSelect[bankName.toLocaleLowerCase()];
   return (
     <StAddCartPopUp>
       <StAddCartPopUpContent>
@@ -85,7 +85,7 @@ const AddCartPopUp = ({ setIsAddCardsPopedUp }) => {
             return <Logo onClick={bankNameValue(item)} />;
           })}
         </StAddCartPopUpContentItem>
-        {bankNamePu ? (
+        {bankName ? (
           <StAddCartPopUpContentForm onSubmit={formik.handleSubmit}>
             <StAddCartPopUpContentFormControl>
               <label htmlFor="name"> : عنوان حساب</label>

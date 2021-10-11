@@ -1,16 +1,16 @@
-import React from "react";
-import * as Yup from "yup";
-import { useState } from "react";
-import { useFormik } from "formik";
-import { banksColor } from "../../../helperDate";
-import selectors from "../../../../redux/accounts/selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { addTransaction } from "../../../../redux/accounts/actions";
-import Switch from "react-switch";
-import { v4 as uuidv4 } from "uuid";
-
+import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
 
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import { v4 as uuidv4 } from "uuid";
+
+import { useDispatch, useSelector } from "react-redux";
+import { addTransaction } from "../../../../redux/accounts/actions";
+import selectors from "../../../../redux/accounts/selectors";
+import { banksColor } from "../../../helperDate";
+
+import Switch from "react-switch";
 import {
   StAddCartFormControlInput,
   StAddTransaction,
@@ -49,6 +49,7 @@ const AddTransaction = ({ setIsAddTransactionPu }) => {
           ...values,
           id: uuidv4(),
           time: new Date(),
+          bank: accounts.find((item) => item.id === bankAccId).bank,
         },
       })
     );
@@ -57,12 +58,13 @@ const AddTransaction = ({ setIsAddTransactionPu }) => {
 
   const validationSchema = Yup.object({
     price: Yup.string()
-      .min(7, "اعداد وارد شده باید بیشتر از ۷ عدد باشد")
-      .max(10, "بیشترین مقدار")
+      .min(4, "اعداد وارد شده باید بیشتر از ۴ عدد باشد")
+      .max(10, "قراتر از حداکثر مقدار تراکنش")
       .required("این فیلد الزامی میباشد"),
     name: Yup.string()
       .required("این فیلد الزامی میباشد")
-      .min(4, "مقدار وارد شده کمتر از ۴ کاراکتر میباشد"),
+      .max(16, "حداکثر کاراکتر در متن ۱۶ کاراکتر ")
+      .min(4, "حروف وارد شده کمتر از ۴ کاراکتر میباشد"),
   });
 
   const formik = useFormik({ initialValues, onSubmit, validationSchema });
@@ -117,7 +119,7 @@ const AddTransaction = ({ setIsAddTransactionPu }) => {
             </StAddTransactionContentFormControl>
             <StAddTransactionContentFormSubmitContainer>
               <Switch checked={isInputchecked} onChange={formIsInputHandler} />
-              واریز به حساب
+              آیا تراکنش واریزی است؟
             </StAddTransactionContentFormSubmitContainer>
             <StAddTransactionContentFormSubmitContainer>
               <StAddTransactionContentFormSubmitBtn type="submit">
@@ -132,7 +134,9 @@ const AddTransaction = ({ setIsAddTransactionPu }) => {
           </StAddTransactionContentForm>
         ) : (
           <StAddTransactionSelectTitle>
-            لطفا کارت خود را انتخاب نمایید
+            {accounts.length
+              ? `لطفا حساب خود را انتخاب نمایید`
+              : `لطفا یک حساب برای خود ایحاد نمایید`}
           </StAddTransactionSelectTitle>
         )}
       </StAddTransactionContent>

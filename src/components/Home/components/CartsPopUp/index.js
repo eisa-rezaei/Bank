@@ -18,6 +18,7 @@ const CartsPopUp = ({ setIsCardsPopedUp, setAccount }) => {
   return (
     <StCartPopUp onClick={() => setIsCardsPopedUp((prev) => !prev)}>
       <StCartPopUpContent>
+        <h1>لیست کارت ها</h1>
         {accounts.map((account) => {
           const Logo = banksColor[account.bank.toLowerCase()];
           return (

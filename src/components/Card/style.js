@@ -5,5 +5,8 @@ export const StCardContaienr = styled.div`
   height: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  & h1 {
+    font-size: 1.6rem;
+  }
 `;

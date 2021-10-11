@@ -22,6 +22,10 @@ export const StCartPopUpContent = styled.ul`
   justify-content: flex-start;
   background-color: #fff;
   border-radius: 30px;
+  & h1 {
+    font-size: 1.3rem;
+    margin: 10px 0;
+  }
 `;
 export const StCartPopUpContentItem = styled.li`
   width: 100%;

@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const StHomeContainer = styled.div`
   width: 100%;
   height: auto;
-  margin: 40px 80px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -59,8 +58,8 @@ export const StHomeMoneyTransform = styled.ul`
 export const StHomeMoneyTransformTitle = styled.header`
   width: 100%;
   height: 50px;
-  margin-bottom: 20px;
-  font-size: 2rem;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
   display: flex;
   align-self: baseline;
   flex-direction: row-reverse;
@@ -70,5 +69,18 @@ export const StHomeMoneyTransformTitle = styled.header`
     font-size: 1rem;
     color: #dc7031;
     cursor: pointer;
+  }
+`;
+
+export const StHomeMoneyListNoAction = styled.div`
+  width: 100%;
+  height: 200px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & svg {
+    margin-right: 50px;
+    font-size: 2rem;
   }
 `;
