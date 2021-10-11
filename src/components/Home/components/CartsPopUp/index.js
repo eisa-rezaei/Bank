@@ -23,7 +23,7 @@ const CartsPopUp = ({ setIsCardsPopedUp, setAccount }) => {
           const Logo = banksColor[account.bank.toLowerCase()];
           return (
             <StCartPopUpContentItem onClick={bankChangeHandler(account.id)}>
-              <h1>{banksName[account.bank.toLowerCase()]}</h1>
+              <h1>بانک {banksName[account.bank.toLowerCase()]}</h1>
               <h2>{<Logo />}</h2>
             </StCartPopUpContentItem>
           );

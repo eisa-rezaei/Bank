@@ -7,10 +7,11 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import { useDispatch } from "react-redux";
-import { banksColor, banksNameArr } from "../../../helperDate";
+import { banksColor, banksName, banksNameArr } from "../../../helperDate";
 import { addAccount } from "../../../../redux/accounts/actions";
 import {
   StAddCardSelectTitle,
+  StAddCartContentSingleItem,
   StAddCartFormControlInput,
   StAddCartPopUp,
   StAddCartPopUpContent,
@@ -56,22 +57,12 @@ const AddCartPopUp = ({ setIsAddCardsPopedUp }) => {
       .required("این فیلد الزامی میباشد"),
     name: Yup.string()
       .required("این فیلد الزامی میباشد")
-      .min(4, "مقدار وارد شده کمتر از ۴ کاراکتر میباشد"),
+      .min(4, "مقدار وارد شده نباید کمتر از ۴ کاراکتر باشد")
+      .max(12, "مقدار وارد شده نباید بیشتر از ۱۲ کاراکتر باشد"),
   });
 
   const formik = useFormik({ initialValues, onSubmit, validationSchema });
 
-  const BanksSelect = {
-    refah: 1,
-    saderat: 2,
-    saman: 3,
-    mellat: 4,
-    melli: 5,
-    sina: 6,
-    tejarat: 7,
-    shahr: 8,
-  };
-  const numberBanks = BanksSelect[bankName.toLocaleLowerCase()];
   return (
     <StAddCartPopUp>
       <StAddCartPopUpContent>
@@ -79,10 +70,19 @@ const AddCartPopUp = ({ setIsAddCardsPopedUp }) => {
           <h1> افزودن حساب</h1>
           <IoClose onClick={() => setIsAddCardsPopedUp((prev) => !prev)} />
         </span>
-        <StAddCartPopUpContentItem numberBanks={numberBanks}>
-          {banksNameArr.map((item) => {
+        <StAddCartPopUpContentItem>
+          {banksNameArr.map((item, index) => {
             const Logo = banksColor[item.toLocaleLowerCase()];
-            return <Logo onClick={bankNameValue(item)} />;
+            return (
+              <StAddCartContentSingleItem
+                onClick={bankNameValue(item)}
+                key={index}
+                selected={item === bankName}
+              >
+                <Logo />
+                <p>{banksName[item]}</p>
+              </StAddCartContentSingleItem>
+            );
           })}
         </StAddCartPopUpContentItem>
         {bankName ? (

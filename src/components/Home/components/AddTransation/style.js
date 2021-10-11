@@ -44,24 +44,35 @@ export const StAddTransactionContent = styled.ul`
     }
   }
 `;
+
 export const StAddTransactionContentItem = styled.div`
   width: clamp(40%, 50%, 100%);
   height: 70px;
   padding: 20px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-between;
   border-radius: 10px;
-  z-index: 3;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   & svg {
     cursor: pointer;
   }
-  & :nth-child(${(props) => props.numberBanks}) {
-    background-color: greenyellow;
-    border-radius: 10px;
-  }
+`;
+
+export const StAddTransactionContentSingleItem = styled.div`
+  width: 100px;
+  height: auto;
+  padding: 10px;
+  line-height: 46px;
+  border-radius: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #efefef;
+  background-color: ${(props) => (props.selected ? `greenyellow;` : `#fff;`)};
 `;
 
 export const StAddTransactionContentForm = styled.form`

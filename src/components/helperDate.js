@@ -43,14 +43,14 @@ export const banksColor = {
   shahr: ShahrC,
 };
 export const banksName = {
-  refah: "بانک رفاه",
-  saderat: "بانک صادرات",
-  saman: "بانک سامان",
-  mellat: "بانک ملت",
-  melli: "بانک ملی",
-  sina: "بانک سینا",
-  tejarat: "بانک تجارت",
-  shahr: "بانک شهر",
+  refah: "رفاه",
+  saderat: "صادرات",
+  saman: "سامان",
+  mellat: "ملت",
+  melli: "ملی",
+  sina: "سینا",
+  tejarat: "تجارت",
+  shahr: "شهر",
 };
 
 export const banksNameArr = [

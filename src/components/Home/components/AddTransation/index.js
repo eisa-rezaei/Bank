@@ -21,6 +21,7 @@ import {
   StAddTransactionContentFormSubmitBtn,
   StAddTransactionContentFormSubmitContainer,
   StAddTransactionContentItem,
+  StAddTransactionContentSingleItem,
   StAddTransactionSelectTitle,
 } from "./style";
 
@@ -85,10 +86,14 @@ const AddTransaction = ({ setIsAddTransactionPu }) => {
           {accounts.map((item) => {
             const Logo = banksColor[item.bank.toLocaleLowerCase()];
             return (
-              <div>
-                <Logo onClick={bankNameValue(item.id)} key={item.id} />
+              <StAddTransactionContentSingleItem
+                onClick={bankNameValue(item.id)}
+                key={item.id}
+                selected={item.id === bankAccId}
+              >
+                <Logo />
                 <p>{item.name}</p>
-              </div>
+              </StAddTransactionContentSingleItem>
             );
           })}
         </StAddTransactionContentItem>
