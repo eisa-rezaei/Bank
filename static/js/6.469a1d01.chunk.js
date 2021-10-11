@@ -1,0 +1,2 @@
+(this.webpackJsonpcra=this.webpackJsonpcra||[]).push([[6],{223:function(n,e,t){"use strict";t.r(e);var a,i=t(1),c=t.n(i),l=t(8),r=t(9).b.div(a||(a=Object(l.a)(["\n  width: 100%;\n  height: auto;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  & h1 {\n    font-size: 1.6rem;\n  }\n"])));e.default=function(){return c.a.createElement(r,null,c.a.createElement("h1",null,"\u06a9\u06cc\u0641 \u067e\u0648\u0644 \u0634\u0645\u0627"))}}}]);
+//# sourceMappingURL=6.469a1d01.chunk.js.map

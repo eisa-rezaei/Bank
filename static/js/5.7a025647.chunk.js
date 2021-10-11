@@ -1,2 +1,0 @@
-(this.webpackJsonpcra=this.webpackJsonpcra||[]).push([[5],{221:function(n,t,e){"use strict";e.r(t);var a,c=e(1),i=e.n(c),r=e(8),s=e(9).b.div(a||(a=Object(r.a)(["\n  width: 100%;\n  height: auto;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"])));t.default=function(){return i.a.createElement(s,null,"\u06a9\u06cc\u0641 \u067e\u0648\u0644 \u0634\u0645\u0627")}}}]);
-//# sourceMappingURL=5.7a025647.chunk.js.map
