@@ -12,9 +12,12 @@ import {
 
 const Statistic = () => {
   const accounts = useSelector(selectors.getAccounts);
-  const [transactions] = [...accounts.map((item) => item.transactions)];
-  const outPut = [...transactions.filter((item) => !item.isInput)];
-  const inPut = [...transactions.filter((item) => item.isInput)];
+  const transactions = [...accounts.map((item) => item.transactions)];
+  let transactionList = [];
+  transactions.forEach((item) => transactionList.push(...item));
+
+  const outPut = [...transactionList.filter((item) => !item.isInput)];
+  const inPut = [...transactionList.filter((item) => item.isInput)];
 
   const calculator = (arr) => {
     return arr.reduce((total, current) => total + current.price, 0);
@@ -27,7 +30,7 @@ const Statistic = () => {
     <StMoneyTrStatistic>
       <StMoneyTrStatisticTitle>آخرین تراکنش ها</StMoneyTrStatisticTitle>
       {accounts.length ? (
-        transactions.map((item) => {
+        transactionList.map((item) => {
           const Logo = banksColor[item.bank];
           return (
             <StMoneyTrStatisticItem isInput={item.isInput}>

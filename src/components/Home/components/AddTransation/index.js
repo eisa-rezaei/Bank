@@ -84,7 +84,12 @@ const AddTransaction = ({ setIsAddTransactionPu }) => {
         <StAddTransactionContentItem>
           {accounts.map((item) => {
             const Logo = banksColor[item.bank.toLocaleLowerCase()];
-            return <Logo onClick={bankNameValue(item.id)} key={item.id} />;
+            return (
+              <div>
+                <Logo onClick={bankNameValue(item.id)} key={item.id} />
+                <p>{item.name}</p>
+              </div>
+            );
           })}
         </StAddTransactionContentItem>
         {bankAccId ? (
