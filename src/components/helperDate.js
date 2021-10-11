@@ -65,7 +65,7 @@ export const banksNameArr = [
 ];
 
 export const LINKS_DATA = [
-  { icon: <HiHome />, title: "خانه", path: "/" },
+  { icon: <HiHome />, title: "داشبورد", path: "/" },
   { icon: <IoWallet />, title: "کیف پول", path: "/card" },
   { icon: <MdInsertChart />, title: "آمار", path: "/statistic" },
   { icon: <IoMdPerson />, title: "پروفایل", path: "/profile" },

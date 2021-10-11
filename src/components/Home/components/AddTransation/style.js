@@ -45,9 +45,10 @@ export const StAddTransactionContent = styled.ul`
   }
 `;
 export const StAddTransactionContentItem = styled.div`
-  width: 100%;
+  width: clamp(40%, 50%, 100%);
   height: 70px;
   padding: 20px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -107,25 +108,25 @@ export const StAddTransactionContentFormSubmitBtn = styled.button`
   width: 200px;
   height: 50px;
   padding: 10px;
-  position: absolute;
   bottom: 40px;
   left: 40px;
   color: #fff;
-  background: #88d453;
   cursor: pointer;
+  position: absolute;
   border-radius: 10px;
+  background-color: #88d453;
 `;
 export const StAddTransactionContentFormEnd = styled.button`
   width: 200px;
   height: 50px;
   padding: 10px;
-  position: absolute;
   bottom: 40px;
   right: 40px;
   color: #e74c3c;
-  border: 2px solid #e74c3c;
   cursor: pointer;
+  position: absolute;
   border-radius: 10px;
+  border: 2px solid #e74c3c;
 `;
 
 export const StAddTransactionSelectTitle = styled.div`

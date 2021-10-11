@@ -1,5 +1,5 @@
-import React from "react";
-import { RiToggleLine } from "react-icons/ri";
+import React, { useState } from "react";
+import Switch from "react-switch";
 
 import { Link, useLocation } from "react-router-dom";
 import { LINKS_DATA } from "../helperDate";
@@ -11,6 +11,7 @@ import {
 } from "./style";
 
 const Navigation = () => {
+  const [checked, setChecked] = useState(false);
   const location = useLocation();
   return (
     <StNavContainrer>
@@ -24,7 +25,8 @@ const Navigation = () => {
         ))}
       </StNavLinksList>
       <StNavFooter>
-        <RiToggleLine /> حالت تاریک
+        <Switch checked={checked} onChange={() => setChecked(!checked)} /> حالت
+        تاریک
       </StNavFooter>
     </StNavContainrer>
   );

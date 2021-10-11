@@ -2,8 +2,9 @@ import React, { useLayoutEffect } from "react";
 import { useState } from "react";
 
 import { HiOutlinePlusSm } from "react-icons/hi";
+import { RiEmotionUnhappyLine } from "react-icons/ri";
 
-import HomeListItem from "./components/List";
+import ListOfActions from "./components/List";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import selectors from "../../redux/accounts/selectors";
@@ -18,10 +19,10 @@ import {
   StHomeBankAddCard,
   StHomeContainer,
   StHomeDashboard,
+  StHomeMoneyListNoAction,
   StHomeMoneyTransform,
   StHomeMoneyTransformTitle,
 } from "./style";
-import { StHomeMoneyTransformItem } from "./components/List/style";
 import AddTransaction from "./components/AddTransation";
 
 const Home = () => {
@@ -82,18 +83,18 @@ const Home = () => {
       </StHomeDashboard>
       <StHomeMoneyTransform>
         <StHomeMoneyTransformTitle>
-          نقل و انتقالات
+          آخرین تراکنش ها
           <Link to="/statistic">
             <span>مشاهده همه</span>
           </Link>
         </StHomeMoneyTransformTitle>
         {Object.keys(currentAccount).length &&
         currentAccount?.transactions?.length ? (
-          <HomeListItem currentAccount={currentAccount} />
+          <ListOfActions currentAccount={currentAccount} />
         ) : (
-          <StHomeMoneyTransformItem>
-            تراکنشی تعریف نشده
-          </StHomeMoneyTransformItem>
+          <StHomeMoneyListNoAction>
+            <RiEmotionUnhappyLine /> تراکنشی تعریف نشده
+          </StHomeMoneyListNoAction>
         )}
       </StHomeMoneyTransform>
     </StHomeContainer>

@@ -11,6 +11,7 @@ export const LayoutContainer = styled.main`
 export const StInfoContainer = styled.div`
   width: 100vw;
   height: 100vh;
+  padding: 60px;
   display: flex;
   align-items: flex-start;
   justify-content: center;

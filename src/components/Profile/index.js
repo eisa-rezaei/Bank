@@ -1,12 +1,16 @@
 import React from "react";
-
-import { StProfileContaienr } from "./style";
+import { GoGear } from "react-icons/go";
+import { StProfileContainer, StProfileLogoConatainer } from "./styles";
 
 const Profile = () => {
   return (
-    <StProfileContaienr>
-      <h1> پروفایل </h1>
-    </StProfileContaienr>
+    <StProfileContainer>
+      <p>. . . در حال ساخت </p>
+      <StProfileLogoConatainer>
+        <GoGear />
+        <GoGear />
+      </StProfileLogoConatainer>
+    </StProfileContainer>
   );
 };
 
