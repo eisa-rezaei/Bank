@@ -50,8 +50,8 @@ export const StHomeMoneyTransform = styled.ul`
   width: 100%;
   height: auto;
   display: flex;
-  flex-direction: column;
   align-self: center;
+  flex-direction: column;
   justify-content: center;
 `;
 
