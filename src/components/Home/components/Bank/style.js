@@ -41,7 +41,7 @@ export const StHomeBankNameIconBox = styled.div`
   flex-direction: row-reverse;
   justify-content: space-between;
   & span {
-    width: 150px;
+    width: 180px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
