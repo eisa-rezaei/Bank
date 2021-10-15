@@ -6,7 +6,7 @@ import { StHomeMoneyTransformItem } from "./style";
 const HomeListItem = ({ currentAccount }) => {
   const transactions = currentAccount?.transactions;
   return transactions
-    .slice(transactions?.length - 3, transactions?.length)
+    .slice(-3)
     .reverse()
     .map(({ name, time, isInput, price, bank, id }) => {
       const Logo = banksColor[bank];

@@ -40,4 +40,10 @@ export const StHomeBankNameIconBox = styled.div`
   align-items: center;
   flex-direction: row-reverse;
   justify-content: space-between;
+  & span {
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
