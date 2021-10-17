@@ -11,7 +11,7 @@ export const reducer = (state = initialValues, { type, payload }) => {
       return [
         ...state.map((acc) => {
           if (acc.id === payload.id) {
-            acc.transactions.push(payload.transaction);
+            acc.transactions.unshift(payload.transaction);
             acc.amount +=
               payload.transaction.price *
               (payload.transaction.isInput ? 1 : -1);

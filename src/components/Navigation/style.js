@@ -11,7 +11,6 @@ export const StNavContainrer = styled.nav`
   align-items: center;
   justify-content: flex-start;
   background-color: #fafbfa;
-
   & a {
     margin: 40px 0;
   }
