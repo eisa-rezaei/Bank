@@ -31,7 +31,9 @@ const Card = () => {
                   <Logo />
                 </span>
                 <span>{item.name}</span>
-                <span>{banksName[item.bank.toLowerCase()]}</span>
+                <span className="data--time">
+                  {banksName[item.bank.toLowerCase()]}
+                </span>
                 <span>{convertToJalaliDate(item.time)}</span>
               </StCardListItem>
             );

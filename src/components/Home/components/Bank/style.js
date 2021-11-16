@@ -20,6 +20,7 @@ export const StHomeBankName = styled.section`
   @media ${device.phone} {
     width: 90%;
     margin-left: 10px;
+    border-radius: 20px;
     height: 150px;
     padding: 20px;
     justify-content: space-between;

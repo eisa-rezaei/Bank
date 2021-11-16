@@ -24,12 +24,12 @@ export const StHomeMoneyTransformItem = styled.li`
   }
 
   @media ${device.phone} {
-    font-size: 0.55rem;
+    font-size: 0.65rem;
     & span {
-      min-width: 45px;
+      min-width: 40px;
       & svg {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
       }
     }
     .data--cost {

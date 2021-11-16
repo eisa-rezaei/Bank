@@ -78,7 +78,8 @@ export const StHomeMoneyTransformTitle = styled.header`
     cursor: pointer;
   }
   @media ${device.phone} {
-    font-size: 0.8rem;
+    font-size: 1rem;
+    margin-bottom: 0;
     align-items: center;
     & span {
       font-size: 0.6rem;

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import {createGlobalStyle} from "styled-components";
 import IranYekan from "./assets/styles/fonts.css";
 
 export const GlobalStyle = createGlobalStyle`
@@ -16,6 +16,7 @@ ${IranYekan}
 }
 body {
 	line-height: 1;
+    user-select: none;
 }
 section {
     display: block;
