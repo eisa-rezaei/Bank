@@ -74,7 +74,7 @@ export const StHomeMoneyTransformTitle = styled.header`
   & span {
     align-self: center;
     font-size: 1rem;
-    color: goldenrod;
+    color: #886688;
     cursor: pointer;
   }
   @media ${device.phone} {
@@ -82,7 +82,7 @@ export const StHomeMoneyTransformTitle = styled.header`
     margin-bottom: 0;
     align-items: center;
     & span {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
     }
   }
 `;
@@ -99,9 +99,9 @@ export const StHomeMoneyListNoAction = styled.div`
     font-size: 2rem;
   }
   @media ${device.phone} {
-    font-size: 0.8rem;
+    font-size: 1rem;
     & svg {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
   }
 `;

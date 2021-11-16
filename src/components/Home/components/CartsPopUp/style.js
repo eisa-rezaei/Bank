@@ -5,6 +5,7 @@ export const StCartPopUp = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #00000060;
@@ -12,7 +13,7 @@ export const StCartPopUp = styled.div`
   top: 0;
   left: 0;
 `;
-export const StCartPopUpContent = styled.ul`
+export const StCartPopUpContent = styled.div`
   width: 50%;
   height: 50%;
   padding: 30px;
@@ -35,7 +36,7 @@ export const StCartPopUpContent = styled.ul`
     }
   }
 `;
-export const StCartPopUpContentItem = styled.li`
+export const StCartPopUpContentItem = styled.div`
   width: 100%;
   height: 70px;
   padding: 20px;

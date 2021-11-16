@@ -26,7 +26,9 @@ const Navigation = () => {
                 <Link to={path}>{title}</Link>
               </>
             ) : (
-              <Link to={path}>{icon}</Link>
+              <Link to={path} aria-label={title}>
+                {icon}
+              </Link>
             )}
           </StNavLink>
         ))}
@@ -39,6 +41,7 @@ const Navigation = () => {
           onColor="#333"
           uncheckedIcon={<RiMoonFoggyFill />}
           checkedIcon={<BiSun className="switch-light-icon" />}
+          aria-label="button"
         />
         {isGreater ? "حالت تاریک" : ""}
       </StNavFooter>

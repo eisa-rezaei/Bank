@@ -20,8 +20,8 @@ const Card = () => {
   transactions.forEach((item) => transactionList.push(...item));
   return (
     <StCardContaienr>
+      <StCardsTitle>کیف پول شما</StCardsTitle>
       <StCardListContainer>
-        <StCardsTitle>کیف پول شما</StCardsTitle>
         {accounts.length ? (
           accounts.map((item) => {
             const Logo = banksColor[item?.bank?.toLowerCase()];
