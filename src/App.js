@@ -1,9 +1,9 @@
 import React from "react";
-import { Suspense, lazy } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import {Suspense, lazy} from "react";
+import {HashRouter as Router, Switch, Route} from "react-router-dom";
 import Layout from "./components/Layout";
 import Loading from "./components/Loading";
-import { GlobalStyle } from "./globalStyle";
+import {GlobalStyle} from "./globalStyle";
 
 const Home = lazy(() => import("./components/Home"));
 const Statistic = lazy(() => import("./components/Statistic"));
@@ -12,7 +12,7 @@ const Profile = lazy(() => import("./components/Profile"));
 
 const App = () => {
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading page />}>
       <Router>
         <Layout>
           <Switch>

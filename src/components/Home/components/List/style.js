@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "../../../screenSize";
 
 export const StHomeMoneyTransformItem = styled.li`
   width: 100%;
@@ -20,5 +21,19 @@ export const StHomeMoneyTransformItem = styled.li`
   .data--cost {
     min-width: 150px;
     color: ${(props) => (props.isInput ? `green` : `red`)};
+  }
+
+  @media ${device.phone} {
+    font-size: 0.55rem;
+    & span {
+      min-width: 45px;
+      & svg {
+        width: 35px;
+        height: 35px;
+      }
+    }
+    .data--cost {
+      min-width: 70px;
+    }
   }
 `;

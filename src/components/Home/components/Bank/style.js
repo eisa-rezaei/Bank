@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "../../../screenSize";
 
 export const StHomeBankName = styled.section`
   width: 85%;
@@ -16,6 +17,13 @@ export const StHomeBankName = styled.section`
     transition: all 0.1s linear;
     box-shadow: 0 15px 30px rgba(41, 20, 52, 0.4);
   }
+  @media ${device.phone} {
+    width: 90%;
+    margin-left: 10px;
+    height: 150px;
+    padding: 20px;
+    justify-content: space-between;
+  }
 `;
 export const StHomeBankNameAdd = styled.div`
   width: 100%;
@@ -32,6 +40,14 @@ export const StHomeBankNameAdd = styled.div`
     align-self: flex-start;
     font-size: 2rem;
   }
+  @media ${device.phone} {
+    height: 60px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    & p {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const StHomeBankNameIconBox = styled.div`
@@ -43,7 +59,17 @@ export const StHomeBankNameIconBox = styled.div`
   & span {
     width: 180px;
     display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
+  }
+  @media ${device.phone} {
+    font-size: 0.8rem;
+    & span {
+      width: 120px;
+      & svg {
+        width: 35px;
+        height: 35px;
+      }
+    }
   }
 `;

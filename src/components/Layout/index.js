@@ -1,8 +1,8 @@
 import React from "react";
 import Navigation from "../Navigation";
-import { LayoutContainer, StInfoContainer } from "./style";
+import {LayoutContainer, StInfoContainer} from "./style";
 
-const Layout = ({ children }) => {
+const Layout = ({children}) => {
   return (
     <LayoutContainer>
       <Navigation />

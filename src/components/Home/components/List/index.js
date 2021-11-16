@@ -1,11 +1,11 @@
 import React from "react";
-import { banksColor } from "../../../helperDate";
-import { convertToJalaliDate } from "../../../timeHelper";
-import { StHomeMoneyTransformItem } from "./style";
+import {banksColor} from "../../../helperDate";
+import {convertToJalaliDate} from "../../../timeHelper";
+import {StHomeMoneyTransformItem} from "./style";
 
-const HomeListItem = ({ currentAccount }) => {
+const HomeListItem = ({currentAccount}) => {
   const transactions = currentAccount?.transactions;
-  return transactions.map(({ name, time, isInput, price, bank, id }) => {
+  return transactions.map(({name, time, isInput, price, bank, id}) => {
     const Logo = banksColor[bank];
     return (
       <StHomeMoneyTransformItem isInput={isInput} key={id}>

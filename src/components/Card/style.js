@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "../screenSize";
 
 export const StCardContaienr = styled.div`
   width: 100%;
@@ -15,11 +16,33 @@ export const StCardListContainer = styled.ul`
   align-items: flex-end;
   flex-direction: column;
   justify-content: center;
-  & h1 {
-    margin-bottom: 40px;
-    font-size: 1.6rem;
+`;
+
+export const StCardsTitle = styled.header`
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  display: flex;
+  align-self: baseline;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  & span {
+    align-self: center;
+    font-size: 1rem;
+    color: #dc7031;
+    cursor: pointer;
+  }
+  @media ${device.phone} {
+    font-size: 0.8rem;
+    margin-bottom: 0px;
+    align-items: center;
+    & span {
+      font-size: 0.6rem;
+    }
   }
 `;
+
 export const StCardListItem = styled.li`
   width: 100%;
   height: 50px;
@@ -31,6 +54,16 @@ export const StCardListItem = styled.li`
   border-bottom: 1px solid gray;
   & span {
     min-width: 60px;
+  }
+  @media ${device.phone} {
+    font-size: 0.55rem;
+    & span {
+      min-width: 45px;
+      & svg {
+        width: 35px;
+        height: 35px;
+      }
+    }
   }
 `;
 export const StCardListNoItem = styled.div`

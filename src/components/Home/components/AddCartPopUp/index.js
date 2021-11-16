@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-import { IoClose } from "react-icons/io5";
+import {IoClose} from "react-icons/io5";
 
-import { v4 as uuidv4 } from "uuid";
-import { useFormik } from "formik";
+import {v4 as uuidv4} from "uuid";
+import {useFormik} from "formik";
 import * as Yup from "yup";
 
-import { useDispatch } from "react-redux";
-import { banksColor, banksName, banksNameArr } from "../../../helperDate";
-import { addAccount } from "../../../../redux/accounts/actions";
+import {useDispatch} from "react-redux";
+import {banksColor, banksName, banksNameArr} from "../../../helperDate";
+import {addAccount} from "../../../../redux/accounts/actions";
 import {
   StAddCardSelectTitle,
   StAddCartContentSingleItem,
@@ -23,7 +23,7 @@ import {
   StAddCartPopUpContentItem,
 } from "./style";
 
-const AddCartPopUp = ({ setIsAddCardsPopedUp }) => {
+const AddCartPopUp = ({setIsAddCardsPopedUp, isAddCardsPopedUp}) => {
   const [bankName, setBankName] = useState("");
 
   const dispatch = useDispatch();
@@ -61,14 +61,14 @@ const AddCartPopUp = ({ setIsAddCardsPopedUp }) => {
       .max(12, "مقدار وارد شده نباید بیشتر از ۱۲ کاراکتر باشد"),
   });
 
-  const formik = useFormik({ initialValues, onSubmit, validationSchema });
+  const formik = useFormik({initialValues, onSubmit, validationSchema});
 
   return (
-    <StAddCartPopUp>
+    <StAddCartPopUp isAddCardsPopedUp={isAddCardsPopedUp}>
       <StAddCartPopUpContent>
         <span>
           <h1> افزودن حساب</h1>
-          <IoClose onClick={() => setIsAddCardsPopedUp((prev) => !prev)} />
+          <IoClose onClick={() => setIsAddCardsPopedUp(false)} />
         </span>
         <StAddCartPopUpContentItem>
           {banksNameArr.map((item, index) => {

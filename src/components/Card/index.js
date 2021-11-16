@@ -1,15 +1,16 @@
 import React from "react";
-import { RiEmotionUnhappyLine } from "react-icons/ri";
+import {RiEmotionUnhappyLine} from "react-icons/ri";
 
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 import selectors from "../../redux/accounts/selectors";
-import { banksColor, banksName } from "../helperDate";
-import { convertToJalaliDate } from "../timeHelper";
+import {banksColor, banksName} from "../helperDate";
+import {convertToJalaliDate} from "../timeHelper";
 import {
   StCardContaienr,
   StCardListContainer,
   StCardListItem,
   StCardListNoItem,
+  StCardsTitle,
 } from "./style";
 
 const Card = () => {
@@ -20,7 +21,7 @@ const Card = () => {
   return (
     <StCardContaienr>
       <StCardListContainer>
-        <h1>کیف پول شما</h1>
+        <StCardsTitle>کیف پول شما</StCardsTitle>
         {accounts.length ? (
           accounts.map((item) => {
             const Logo = banksColor[item?.bank?.toLowerCase()];

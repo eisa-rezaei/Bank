@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "../../../screenSize";
 
 export const StAddCartPopUp = styled.div`
   width: 100%;
@@ -11,6 +12,18 @@ export const StAddCartPopUp = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  display: ${(props) => (props.isAddCardsPopedUp ? "flex" : "none")};
+
+  @media ${device.phone} {
+    padding: 0;
+    display: flex;
+    background: none;
+    backdrop-filter: blur(2px);
+    align-items: flex-end;
+    transition: all 0.4s ease;
+    transform: ${(props) =>
+      props.isAddCardsPopedUp ? "translateY(0%)" : "translateY(100%);"};
+  }
 `;
 export const StAddCartPopUpContent = styled.ul`
   width: 65%;
@@ -43,23 +56,23 @@ export const StAddCartPopUpContent = styled.ul`
       cursor: pointer;
     }
   }
-`;
-export const StAddCartPopUpContentItem = styled.div`
-  width: 100%;
-  height: 70px;
-  padding: 20px;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 10px;
-  z-index: 3;
-  & svg {
-    cursor: pointer;
+
+  @media ${device.tablet} {
+    width: 80%;
+    height: 90%;
   }
-  & :nth-child(${(props) => props.numberBanks}) {
-    background-color: greenyellow;
-    border-radius: 10px;
+  @media ${device.phone} {
+    width: 100%;
+    height: 90%;
+    min-height: 400px;
+    padding: 15px;
+    border-radius: 30px 30px 0 0;
+    border: 1px solid gray;
+    font-size: 1rem;
+    & span {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
   }
 `;
 
@@ -83,6 +96,10 @@ export const StAddCartPopUpContentFormControl = styled.form`
   height: auto;
   margin: 20px auto;
   text-align: right;
+  @media ${device.phone} {
+    font-size: 0.8rem;
+    margin: 10px auto;
+  }
 `;
 
 export const StAddCartFormControlInput = styled.input`
@@ -115,6 +132,17 @@ export const StAddCartPopUpContentFormSubmitBtn = styled.button`
   background: #88d453;
   cursor: pointer;
   border-radius: 10px;
+  @media ${device.tablet} {
+    bottom: 20px;
+    right: 30px;
+  }
+  @media ${device.phone} {
+    width: 40%;
+    height: 40px;
+    bottom: 10px;
+    font-size: 0.9rem;
+    left: 20px;
+  }
 `;
 export const StAddCartPopUpContentFormEnd = styled.button`
   width: 200px;
@@ -128,6 +156,18 @@ export const StAddCartPopUpContentFormEnd = styled.button`
   border: 2px solid #e74c3c;
   cursor: pointer;
   border-radius: 10px;
+  @media ${device.tablet} {
+    bottom: 20px;
+    left: 30px;
+  }
+  @media ${device.phone} {
+    width: 40%;
+    height: 40px;
+    position: fixed;
+    font-size: 0.9rem;
+    bottom: 10px;
+    right: 20px;
+  }
 `;
 
 export const StAddCardSelectTitle = styled.div`
@@ -137,6 +177,36 @@ export const StAddCardSelectTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media ${device.phone} {
+    font-size: 0.8rem;
+  }
+`;
+
+export const StAddCartPopUpContentItem = styled.div`
+  width: 100%;
+  height: 70px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  z-index: 3;
+  & svg {
+    cursor: pointer;
+  }
+  & :nth-child(${(props) => props.numberBanks}) {
+    background-color: greenyellow;
+  }
+  @media ${device.phone} {
+    min-height: 110px;
+    padding: 0 10px;
+    overflow: auto;
+    scroll-behavior: smooth;
+    ::-webkit-scrollbar {
+      width: 0px;
+    }
+  }
 `;
 
 export const StAddCartContentSingleItem = styled.div`
@@ -152,4 +222,9 @@ export const StAddCartContentSingleItem = styled.div`
   justify-content: center;
   border: 1px solid #efefef;
   background-color: ${(props) => (props.selected ? `greenyellow;` : `#fff;`)};
+  @media ${device.phone} {
+    width: 100px;
+    margin-left: 10px;
+    line-height: 26px;
+  }
 `;

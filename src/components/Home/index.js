@@ -1,18 +1,18 @@
-import React, { useLayoutEffect } from "react";
-import { useState } from "react";
+import React, {useLayoutEffect} from "react";
+import {useState} from "react";
 
-import { HiOutlinePlusSm } from "react-icons/hi";
-import { RiEmotionUnhappyLine } from "react-icons/ri";
+import {HiOutlinePlusSm} from "react-icons/hi";
+import {RiEmotionUnhappyLine} from "react-icons/ri";
 
 import ListOfActions from "./components/List";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 import selectors from "../../redux/accounts/selectors";
 
 import Bank from "./components/Bank";
 import CartsPopUp from "./components/CartsPopUp";
 import AddCartPopUp from "./components/AddCartPopUp";
-import { StHomeBankName } from "./components/Bank/style";
+import {StHomeBankName} from "./components/Bank/style";
 
 import {
   StHomeBank,
@@ -49,18 +49,18 @@ const Home = () => {
           setAccount={setAccount}
         />
       )}
-      {isAddCardsPopedUp && (
-        <AddCartPopUp setIsAddCardsPopedUp={setIsAddCardsPopedUp} />
-      )}
-      {isAddTransactionPu && (
-        <AddTransaction setIsAddTransactionPu={setIsAddTransactionPu} />
-      )}
+      <AddCartPopUp
+        setIsAddCardsPopedUp={setIsAddCardsPopedUp}
+        isAddCardsPopedUp={isAddCardsPopedUp}
+      />
+      <AddTransaction
+        setIsAddTransactionPu={setIsAddTransactionPu}
+        isAddTransactionPu={isAddTransactionPu}
+      />
       <StHomeDashboard>
         <StHomeMoneyTransformTitle>
           حساب کاربری
-          <span onClick={() => setIsAddTransactionPu(!isAddTransactionPu)}>
-            افزودن تراکنش
-          </span>
+          <span onClick={() => setIsAddTransactionPu(true)}>افزودن تراکنش</span>
         </StHomeMoneyTransformTitle>
         <StHomeBank>
           {Object.keys(currentAccount).length ? (
@@ -72,9 +72,7 @@ const Home = () => {
             <StHomeBankName> هیچ حسابی تغریف نشده</StHomeBankName>
           )}
 
-          <StHomeBankAddCard
-            onClick={() => setIsAddCardsPopedUp(!isAddCardsPopedUp)}
-          >
+          <StHomeBankAddCard onClick={() => setIsAddCardsPopedUp(true)}>
             <span>
               <HiOutlinePlusSm />
             </span>

@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { IoClose } from "react-icons/io5";
+import React, {useState} from "react";
+import {IoClose} from "react-icons/io5";
 
 import * as Yup from "yup";
-import { useFormik } from "formik";
-import { v4 as uuidv4 } from "uuid";
+import {useFormik} from "formik";
+import {v4 as uuidv4} from "uuid";
 
-import { useDispatch, useSelector } from "react-redux";
-import { addTransaction } from "../../../../redux/accounts/actions";
+import {useDispatch, useSelector} from "react-redux";
+import {addTransaction} from "../../../../redux/accounts/actions";
 import selectors from "../../../../redux/accounts/selectors";
-import { banksColor } from "../../../helperDate";
+import {banksColor} from "../../../helperDate";
 
 import Switch from "react-switch";
 import {
@@ -25,7 +25,7 @@ import {
   StAddTransactionSelectTitle,
 } from "./style";
 
-const AddTransaction = ({ setIsAddTransactionPu }) => {
+const AddTransaction = ({setIsAddTransactionPu, isAddTransactionPu}) => {
   const [bankAccId, setBankAccId] = useState("");
   const [isInputchecked, setIsInputchecked] = useState(false);
 
@@ -68,7 +68,7 @@ const AddTransaction = ({ setIsAddTransactionPu }) => {
       .min(4, "حروف وارد شده کمتر از ۴ کاراکتر میباشد"),
   });
 
-  const formik = useFormik({ initialValues, onSubmit, validationSchema });
+  const formik = useFormik({initialValues, onSubmit, validationSchema});
 
   const formIsInputHandler = (checked) => {
     formik.setFieldValue("isInput", checked);
@@ -76,11 +76,11 @@ const AddTransaction = ({ setIsAddTransactionPu }) => {
   };
 
   return (
-    <StAddTransaction>
+    <StAddTransaction isAddTransactionPu={isAddTransactionPu}>
       <StAddTransactionContent>
         <span>
           <h1>افزودن تراکنش</h1>
-          <IoClose onClick={() => setIsAddTransactionPu((prev) => !prev)} />
+          <IoClose onClick={() => setIsAddTransactionPu(!isAddTransactionPu)} />
         </span>
         <StAddTransactionContentItem>
           {accounts.map((item) => {

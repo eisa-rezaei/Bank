@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "../../../screenSize";
 
 export const StAddTransaction = styled.div`
   width: 100%;
@@ -11,6 +12,18 @@ export const StAddTransaction = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  display: ${(props) => (props.isAddTransactionPu ? "flex" : "none")};
+
+  @media ${device.phone} {
+    padding: 0;
+    display: flex;
+    background: none;
+    backdrop-filter: blur(2px);
+    align-items: flex-end;
+    transition: all 0.4s ease;
+    transform: ${(props) =>
+      props.isAddTransactionPu ? "translateY(0%)" : "translateY(100%)"};
+  }
 `;
 export const StAddTransactionContent = styled.ul`
   width: 65%;
@@ -43,6 +56,22 @@ export const StAddTransactionContent = styled.ul`
       cursor: pointer;
     }
   }
+  @media ${device.tablet} {
+    width: 80%;
+    height: 90%;
+  }
+  @media ${device.phone} {
+    width: 100%;
+    height: 90%;
+    min-height: 400px;
+    padding: 15px;
+    border-radius: 30px 30px 0 0;
+    border: 1px solid gray;
+    font-size: 1rem;
+    & span {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const StAddTransactionContentItem = styled.div`
@@ -73,6 +102,14 @@ export const StAddTransactionContentSingleItem = styled.div`
   justify-content: center;
   border: 1px solid #efefef;
   background-color: ${(props) => (props.selected ? `greenyellow;` : `#fff;`)};
+  @media ${device.phone} {
+    width: 80px;
+    line-height: 26px;
+    & svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
 `;
 
 export const StAddTransactionContentForm = styled.form`
@@ -95,6 +132,10 @@ export const StAddTransactionContentFormControl = styled.form`
   height: auto;
   margin: 20px auto;
   text-align: right;
+  @media ${device.phone} {
+    font-size: 0.8rem;
+    margin: 10px auto;
+  }
 `;
 
 export const StAddCartFormControlInput = styled.input`
@@ -105,6 +146,9 @@ export const StAddCartFormControlInput = styled.input`
   padding: 0.5rem;
   color: #222;
   border-bottom: 2px solid #e0e0e0;
+  @media ${device.phone} {
+    font-size: 0.8rem;
+  }
 `;
 export const StAddTransactionContentFormSubmitContainer = styled.div`
   width: 100%;
@@ -113,6 +157,9 @@ export const StAddTransactionContentFormSubmitContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media ${device.phone} {
+    font-size: 0.8rem;
+  }
 `;
 
 export const StAddTransactionContentFormSubmitBtn = styled.button`
@@ -126,6 +173,17 @@ export const StAddTransactionContentFormSubmitBtn = styled.button`
   position: absolute;
   border-radius: 10px;
   background-color: #88d453;
+  @media ${device.tablet} {
+    bottom: 20px;
+    right: 30px;
+  }
+  @media ${device.phone} {
+    width: 40%;
+    bottom: 10px;
+    font-size: 0.9rem;
+    height: 40px;
+    left: 20px;
+  }
 `;
 export const StAddTransactionContentFormEnd = styled.button`
   width: 200px;
@@ -138,6 +196,17 @@ export const StAddTransactionContentFormEnd = styled.button`
   position: absolute;
   border-radius: 10px;
   border: 2px solid #e74c3c;
+  @media ${device.tablet} {
+    bottom: 20px;
+    right: 30px;
+  }
+  @media ${device.phone} {
+    width: 40%;
+    height: 40px;
+    font-size: 0.9rem;
+    bottom: 10px;
+    right: 20px;
+  }
 `;
 
 export const StAddTransactionSelectTitle = styled.div`
@@ -147,4 +216,7 @@ export const StAddTransactionSelectTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media ${device.phone} {
+    font-size: 0.8rem;
+  }
 `;

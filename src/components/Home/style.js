@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "../screenSize";
 
 export const StHomeContainer = styled.div`
   width: 100%;
@@ -27,6 +28,9 @@ export const StHomeBank = styled.article`
   align-items: center;
   flex-direction: row-reverse;
   justify-content: space-between;
+  @media ${device.phone} {
+    margin: 10px auto;
+  }
 `;
 export const StHomeBankAddCard = styled.div`
   width: 50px;
@@ -43,6 +47,9 @@ export const StHomeBankAddCard = styled.div`
     cursor: pointer;
     transition: all 0.1s linear;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  @media ${device.phone} {
+    width: 40px;
   }
 `;
 
@@ -69,6 +76,13 @@ export const StHomeMoneyTransformTitle = styled.header`
     font-size: 1rem;
     color: #dc7031;
     cursor: pointer;
+  }
+  @media ${device.phone} {
+    font-size: 0.8rem;
+    align-items: center;
+    & span {
+      font-size: 0.6rem;
+    }
   }
 `;
 

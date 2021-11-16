@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "../../../screenSize";
 
 export const StCartPopUp = styled.div`
   width: 100%;
@@ -25,6 +26,13 @@ export const StCartPopUpContent = styled.ul`
   & h1 {
     font-size: 1.3rem;
     margin: 10px 0;
+  }
+  @media ${device.phone} {
+    width: 90%;
+    padding: 15px;
+    & h1 {
+      font-size: 0.8rem;
+    }
   }
 `;
 export const StCartPopUpContentItem = styled.li`
