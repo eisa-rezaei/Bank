@@ -21,9 +21,9 @@ const Card = () => {
   return (
     <StCardContaienr>
       <StCardsTitle>کیف پول شما</StCardsTitle>
-      <StCardListContainer>
-        {accounts.length ? (
-          accounts.map((item) => {
+      {accounts.length ? (
+        <StCardListContainer>
+          {accounts.map((item) => {
             const Logo = banksColor[item?.bank?.toLowerCase()];
             return (
               <StCardListItem key={item.id}>
@@ -37,13 +37,13 @@ const Card = () => {
                 <span>{convertToJalaliDate(item.time)}</span>
               </StCardListItem>
             );
-          })
-        ) : (
-          <StCardListNoItem>
-            <h1>هیچ کارتی ثبت نشده است</h1> <RiEmotionUnhappyLine />
-          </StCardListNoItem>
-        )}
-      </StCardListContainer>
+          })}
+        </StCardListContainer>
+      ) : (
+        <StCardListNoItem>
+          <h1>هیچ کارتی ثبت نشده است</h1> <RiEmotionUnhappyLine />
+        </StCardListNoItem>
+      )}
     </StCardContaienr>
   );
 };
