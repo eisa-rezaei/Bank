@@ -85,4 +85,12 @@ export const StCardListNoItem = styled.div`
     margin-top: 20px;
     font-size: 3rem;
   }
+  @media ${device.phone} {
+    height: 300px;
+    text-align: center;
+    font-size: 1rem;
+    & svg {
+      font-size: 2rem;
+    }
+  }
 `;

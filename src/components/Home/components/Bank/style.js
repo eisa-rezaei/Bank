@@ -19,6 +19,8 @@ export const StHomeBankName = styled.section`
   }
   @media ${device.phone} {
     width: 90%;
+    font-size: 1rem;
+    text-align: right;
     margin-left: 10px;
     border-radius: 20px;
     height: 150px;
