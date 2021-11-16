@@ -1,14 +1,10 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 import selectors from "../../../../redux/accounts/selectors";
-import { banksColor, banksName } from "../../../helperDate";
-import {
-  StCartPopUp,
-  StCartPopUpContent,
-  StCartPopUpContentItem,
-} from "./style";
+import {banksColor, banksName} from "../../../helperDate";
+import {StCartPopUp, StCartPopUpContent, StCartPopUpContentItem} from "./style";
 
-const CartsPopUp = ({ setIsCardsPopedUp, setAccount }) => {
+const CartsPopUp = ({setIsCardsPopedUp, setAccount}) => {
   const accounts = useSelector(selectors.getAccounts);
 
   const bankChangeHandler = (item) => () => {
@@ -17,8 +13,8 @@ const CartsPopUp = ({ setIsCardsPopedUp, setAccount }) => {
 
   return (
     <StCartPopUp onClick={() => setIsCardsPopedUp((prev) => !prev)}>
+      <h1>لیست کارت ها</h1>
       <StCartPopUpContent>
-        <h1>لیست کارت ها</h1>
         {accounts.map((account) => {
           const Logo = banksColor[account.bank.toLowerCase()];
           return (

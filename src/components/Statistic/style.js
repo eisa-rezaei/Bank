@@ -25,7 +25,7 @@ export const StMoneyTrStatisticTitle = styled.header`
     cursor: pointer;
   }
   @media ${device.phone} {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-bottom: 0;
     align-items: center;
     & span {
@@ -57,12 +57,12 @@ export const StMoneyTrStatisticItem = styled.li`
     color: ${(props) => (props.isInput ? `green` : `red`)};
   }
   @media ${device.phone} {
-    font-size: 0.55rem;
+    font-size: 0.65rem;
     & span {
-      min-width: 45px;
+      min-width: 40px;
       & svg {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
       }
     }
     .data--cost {

@@ -5,6 +5,7 @@ export const StCardContaienr = styled.div`
   width: 100%;
   height: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-end;
 `;
@@ -34,7 +35,7 @@ export const StCardsTitle = styled.header`
     cursor: pointer;
   }
   @media ${device.phone} {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-bottom: 0px;
     align-items: center;
     & span {
@@ -55,14 +56,21 @@ export const StCardListItem = styled.li`
   & span {
     min-width: 60px;
   }
+  .data--time {
+    color: #00000066;
+  }
   @media ${device.phone} {
-    font-size: 0.55rem;
+    font-size: 0.65rem;
     & span {
-      min-width: 45px;
+      margin-left: 5px;
+      min-width: 40px;
       & svg {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
       }
+    }
+    .data--time {
+      color: #00000066;
     }
   }
 `;
@@ -77,5 +85,13 @@ export const StCardListNoItem = styled.div`
   & svg {
     margin-top: 20px;
     font-size: 3rem;
+  }
+  @media ${device.phone} {
+    height: 300px;
+    text-align: center;
+    font-size: 1rem;
+    & svg {
+      font-size: 2rem;
+    }
   }
 `;

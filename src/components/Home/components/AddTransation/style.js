@@ -66,7 +66,7 @@ export const StAddTransactionContent = styled.ul`
     min-height: 400px;
     padding: 15px;
     border-radius: 30px 30px 0 0;
-    border: 1px solid gray;
+    border: 1px solid #e0e0e0;
     font-size: 1rem;
     & span {
       font-size: 1rem;

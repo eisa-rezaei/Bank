@@ -10,6 +10,7 @@ export const StProfileContainer = styled.main`
   padding: 20vh 0;
   & p {
     font-size: 3rem;
+    text-align: right;
   }
   @media ${device.phone} {
     padding: 0;

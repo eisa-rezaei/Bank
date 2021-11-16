@@ -1,8 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 import selectors from "../../redux/accounts/selectors";
-import { banksColor } from "../helperDate";
-import { convertToJalaliDate } from "../timeHelper";
+import {banksColor} from "../helperDate";
+import {convertToJalaliDate} from "../timeHelper";
 import {
   StMoneyTrStatistic,
   StMoneyTrStatisticItem,
@@ -29,7 +29,7 @@ const Statistic = () => {
   return (
     <StMoneyTrStatistic>
       <StMoneyTrStatisticTitle>آخرین تراکنش ها</StMoneyTrStatisticTitle>
-      {accounts.length ? (
+      {accounts.length && transactionList[0] ? (
         transactionList.map((item) => {
           const Logo = banksColor[item.bank];
           return (

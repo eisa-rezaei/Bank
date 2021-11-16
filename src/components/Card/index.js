@@ -20,10 +20,10 @@ const Card = () => {
   transactions.forEach((item) => transactionList.push(...item));
   return (
     <StCardContaienr>
-      <StCardListContainer>
-        <StCardsTitle>کیف پول شما</StCardsTitle>
-        {accounts.length ? (
-          accounts.map((item) => {
+      <StCardsTitle>کیف پول شما</StCardsTitle>
+      {accounts.length ? (
+        <StCardListContainer>
+          {accounts.map((item) => {
             const Logo = banksColor[item?.bank?.toLowerCase()];
             return (
               <StCardListItem key={item.id}>
@@ -31,17 +31,19 @@ const Card = () => {
                   <Logo />
                 </span>
                 <span>{item.name}</span>
-                <span>{banksName[item.bank.toLowerCase()]}</span>
+                <span className="data--time">
+                  {banksName[item.bank.toLowerCase()]}
+                </span>
                 <span>{convertToJalaliDate(item.time)}</span>
               </StCardListItem>
             );
-          })
-        ) : (
-          <StCardListNoItem>
-            <h1>هیچ کارتی ثبت نشده است</h1> <RiEmotionUnhappyLine />
-          </StCardListNoItem>
-        )}
-      </StCardListContainer>
+          })}
+        </StCardListContainer>
+      ) : (
+        <StCardListNoItem>
+          <h1>هیچ کارتی ثبت نشده است</h1> <RiEmotionUnhappyLine />
+        </StCardListNoItem>
+      )}
     </StCardContaienr>
   );
 };
